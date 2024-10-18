@@ -1,15 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-   name: pod-replicasetmatchlabel-dep
+   name: pod-replicasetmatchexp
 spec:
    replicas: 3
    selector:
-       app: ws
+     matchExpressions:
+     - key: app
+       operator: In
+       values: 
+         - web
    template:
      metadata:
        labels:
-         app: ws
+         app: web
      spec:
       containers:
       - name: mysql
