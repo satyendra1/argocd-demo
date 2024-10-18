@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: pod-replicasetmatchlabel-dep
+spec:
+   replicas: 3
+   selector:
+       app: ws
+   template:
+     metadata:
+       labels:
+         app: ws
+     spec:
+      containers:
+      - name: mysql
+        image: santyrocker/demo-image:8080
