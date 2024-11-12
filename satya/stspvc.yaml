@@ -4,8 +4,8 @@ metadata:
   name: sam
 spec:
   persistentVolumeClaimRetentionPolicy:
-  whenDeleted: Delete
-  whenScaled: Delete
+    whenDeleted: Delete
+    whenScaled: Delete
   volumeClaimTemplates:
   - apiVersion: v1	
     kind: PersistentVolumeClaim
