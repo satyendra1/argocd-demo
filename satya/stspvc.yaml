@@ -19,6 +19,8 @@ spec:
      app: web
   replicas: 3
   serviceName: nodeport-pod
+  updateStrategy:
+    type: OnDelete
   template:
     metadata:
      labels:
