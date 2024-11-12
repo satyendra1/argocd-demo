@@ -4,7 +4,9 @@ metadata:
   name: sam
 spec:
   volumeClaimTemplates:
-  - metadata:
+  - apiVersion: v1	
+    kind: PersistentVolumeClaim
+    metadata:
       name: www
     spec:
       accessModes: [ "ReadWriteOnce" ]
