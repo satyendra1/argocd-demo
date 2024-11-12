@@ -17,4 +17,4 @@ spec:
     spec:
      containers:
      - name: website
-       image: santyrocker/demo-image:8080
+       image: nginx
