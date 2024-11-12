@@ -3,6 +3,9 @@ kind: StatefulSet
 metadata:
   name: sam
 spec:
+  persistentVolumeClaimRetentionPolicy:
+  whenDeleted: Delete
+  whenScaled: Delete
   volumeClaimTemplates:
   - apiVersion: v1	
     kind: PersistentVolumeClaim
