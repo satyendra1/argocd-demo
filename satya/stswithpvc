@@ -3,15 +3,6 @@ kind: StatefulSet
 metadata:
   name: argoc-demo
 spec:
-  volumeClaimTemplates:
-  - metadata:
-      name: www
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: managed-nfs-storage
-      resources:
-        requests:
-          storage: 1Gi
   selector:
     matchLabels:
      app: web
@@ -25,6 +16,3 @@ spec:
      containers:
      - name: website
        image: santyrocker/demo-image:8080
-       volumeMounts:
-       - mountPath: /root/satya
-         name: www
