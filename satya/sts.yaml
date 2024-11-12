@@ -8,8 +8,6 @@ spec:
      app: web
   replicas: 3
   serviceName: clusterip
-  updateStrategy:
-    type: OnDelete
   template:
     metadata:
      labels:
