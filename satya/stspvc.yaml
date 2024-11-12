@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sam
+spec:
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: managed-nfs-storage
+      resources:
+        requests:
+          storage: 1Gi
+  selector:
+    matchLabels:
+     app: web
+  replicas: 3
+  serviceName: nodeport-pod
+  template:
+    metadata:
+     labels:
+       app: web
+    spec:
+     containers:
+     - name: website
+       image: santyrocker/demo-image:8080
+       volumeMounts:
+       - mountPath: /root/satya
+         name: www 
